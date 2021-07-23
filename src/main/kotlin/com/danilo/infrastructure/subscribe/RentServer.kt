@@ -15,7 +15,7 @@ class RentServer(private val service: RentServicePort) {
 
     @Subject("store.rent")
     fun receive(eventsInformation: EventsInformation) {
-        log.info("mensagem recebida{}" )
+        log.info("mensagem recebida{}")
         when (eventsInformation.events.event) {
             "SAVE_RENT" -> service.insert(
                 RentConverter.rentEventDtoToRent(eventsInformation.rent)

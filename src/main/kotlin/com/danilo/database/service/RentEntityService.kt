@@ -9,7 +9,7 @@ import java.util.UUID
 import javax.inject.Singleton
 
 @Singleton
-class RentService(private val rentEntityRepository: RentEntityRepository) : RentEntityServicePort {
+class RentEntityService(private val rentEntityRepository: RentEntityRepository) : RentEntityServicePort {
     override fun save(rentEntity: RentEntity): Rent =
         RentConverter.rentEntityToRent(rentEntityRepository.saveCql(rentEntity))
 
